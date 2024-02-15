@@ -40,25 +40,8 @@ st.title('Bem-Vindo(a) à Universidade Federal de Tangamandápio (UFTM)')
 st.write('Neste site, você (professor) poderá cadastrar seu aluno (em Cadastro) e ver a listagem de quantos alunos há na UFTM (em Listagem)')
     
     
-    #### Pagina 2 - Serve para cadastras os demais alunos no banco de dados ####
-    
-    def pagina_cadastro():
-        st.header('Cadastro', divider='rainbow')
-        st.title('Nesta Página')
-        st.markdown('''Você vai cadastrar o aluno na Universidade Estadual de Tangamandápio (UFTM)''')
-        conexao = conn_mysql()
-        cpf = st.text_input('Digite seu CPF')
-        nome = st.text_input('Digite seu Nome')
-        curso = st.text_input('Digite o curso em que está matriculado')
-        ctt = st.text_input('Digite seu telefone de contato')
-        email = st.text_input('Digite seu Email')
-        if conexao:
-            joja = st.button('Cadastrar')
-            if joja:
-                st.success("Aluno matriculado com sucesso")
-                conexao.execute('INSERT INTO alunos (CPF, Nome, Curso, telCtt, Email) values (%s,%s,%s,%s,%s)', (cpf,nome,curso,ctt,email))
-            conexao.commit()
-    
+    #### Pagina 2 - Serve para cadastras os demais alunos no banco de dados ###
+
     #### Pagina 3 - Serve para dar uma beleza para quando for chamar a página 'pagina_exibicao' ####
     
     def pagina_bonita():
