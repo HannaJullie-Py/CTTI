@@ -26,19 +26,18 @@ st.set_page_config(page_title='UFTM', page_icon='🎓')
 
 ##### Conexão ao Banco MySQL #####
 
-def mae():
 
-    def conn_mysql():
-        conn = st.connection('mysql', type='sql')
+
+def conn_mysql():
+    conn = st.connection('mysql', type='sql')
         
     ##### Definindo as páginas #####
      
     #### Pagina 1 - Mostra o início do site junto com a logo e sua funcionalidade ####
-    def pagina_inicio():
-        st.image('https://i.imgur.com/TBvRRfw.jpg', width=720)
-        st.divider()
-        st.title('Bem-Vindo(a) à Universidade Federal de Tangamandápio (UFTM)')
-        st.write('Neste site, você (professor) poderá cadastrar seu aluno (em Cadastro) e ver a listagem de quantos alunos há na UFTM (em Listagem)')
+st.image('https://i.imgur.com/TBvRRfw.jpg', width=720)
+st.divider()
+st.title('Bem-Vindo(a) à Universidade Federal de Tangamandápio (UFTM)')
+st.write('Neste site, você (professor) poderá cadastrar seu aluno (em Cadastro) e ver a listagem de quantos alunos há na UFTM (em Listagem)')
     
     
     #### Pagina 2 - Serve para cadastras os demais alunos no banco de dados ####
