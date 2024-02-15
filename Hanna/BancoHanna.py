@@ -28,7 +28,7 @@ st.set_page_config(page_title='UFTM', page_icon='🎓')
 
 def mae():
 
-    def conn_mysql();
+    def conn_mysql():
         conn = st.connection('mysql', type='sql')
         
     ##### Definindo as páginas #####
