@@ -18,7 +18,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from streamlit_option_menu import option_menu
+#from streamlit_option_menu import option_menu
 
 ##### Configurando a aba da página #####
 
