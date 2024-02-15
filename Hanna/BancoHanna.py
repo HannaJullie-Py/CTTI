@@ -15,7 +15,6 @@
 
 ##### Importando bibliotecas #####
 
-import mysql.connector
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -29,22 +28,8 @@ st.set_page_config(page_title='UFTM', page_icon='🎓')
 
 def mae():
 
-    def conn_mysql():
-        config = {
-            "user" : "root",
-            "password" : "",
-            "host" : "127.0.0.1",
-            "port" : "3306",
-            "database" : "facul",
-            "raise_on_warnings":True
-        }
-    
-        try:
-            conexao = mysql.connector.connect(**config)
-            return conexao
-        except mysql.connector.Error as err:
-            st.error(f"Erro ao conectar ao banco MySQL: {err}")
-            return None
+    def conn_mysql();
+        conn = st.connection('mysql', type='sql')
         
     ##### Definindo as páginas #####
      
@@ -69,11 +54,10 @@ def mae():
         ctt = st.text_input('Digite seu telefone de contato')
         email = st.text_input('Digite seu Email')
         if conexao:
-            cursor = conexao.cursor()
             joja = st.button('Cadastrar')
             if joja:
                 st.success("Aluno matriculado com sucesso")
-                cursor.execute('INSERT INTO alunos (CPF, Nome, Curso, telCtt, Email) values (%s,%s,%s,%s,%s)', (cpf,nome,curso,ctt,email))
+                conexao.execute('INSERT INTO alunos (CPF, Nome, Curso, telCtt, Email) values (%s,%s,%s,%s,%s)', (cpf,nome,curso,ctt,email))
             conexao.commit()
     
     #### Pagina 3 - Serve para dar uma beleza para quando for chamar a página 'pagina_exibicao' ####
@@ -90,8 +74,7 @@ def mae():
         st.title('Listagem de alunos matriculados')
         conexao = conn_mysql()
         if conexao:        
-            cursor = conexao.cursor()
-            cursor.execute('SELECT * FROM Alunos')
+            cursor.query('SELECT * FROM Alunos')
             resultados = cursor.fetchall()
             st.write("Resultados da consulta ao banco de dados MySQL: ")
             for resultado in resultados:
